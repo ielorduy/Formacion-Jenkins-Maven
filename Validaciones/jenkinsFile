@@ -1,0 +1,79 @@
+def dia = new Date().getDay()
+def dias_letras= 
+[1: "Lunes",
+ 2:  "Martes",
+ 3: "Miercoles",
+ 4: "Jueves",
+ 5: "Viernes",
+ 6: "Sabado",
+ 7: "Domingo"]
+ 
+ pipeline
+{
+    agent any
+    stages
+    {
+        stage('Lunes')
+        {
+            steps
+            {
+                script
+                {
+                 if(dia == 1){}
+
+                }
+            }
+        }
+        stage('Martes')
+        {
+            steps
+            {
+                script
+                {
+                 if(dia == 2)
+                    println new Date()
+                }
+            }
+        }
+        stage('Miercoles')
+        {
+            steps
+            {
+                script
+                {
+                 if(dia == 3){}
+
+                }
+            }
+        }
+        stage('Jueves')
+        {
+            steps
+            {
+                script
+                {
+                 if(dia == 4){}
+
+                }
+            }
+        }
+        stage('Viernes')
+        {
+            steps
+            {
+                script
+                {
+                    if(dia == 5){
+                        def cause = currentBuild.rawBuild.getCause(Cause.UserIdCause)
+                        if (cause != null) {
+                            def user = cause.userId ?: 'anonymous'
+                            echo "started by ${user}"
+                        } else {
+                            echo "started some other way"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
