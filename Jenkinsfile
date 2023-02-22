@@ -24,9 +24,9 @@ pipeline
             {
                 script
                 {
-					def multiplicacion = num1*num2
-					def suma = num1+num2
-					def potencia= (suma)*(suma)
+                    def multiplicacion = num1*num2
+                    def suma = num1+num2
+                    def potencia= (suma)*(suma)
                     def info = "multiplicacion:"+multiplicacion+" Potencia:"+potencia
                     writeFile (file: "salida.txt", text: info)
                 }
